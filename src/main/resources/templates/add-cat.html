@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="${'/users/cat/add'}" method="post" th:object="${cat}">
+    <label for="user">Пользователь:</label>
+    <select name="user" id="user" class="form-select" aria-label="Default select example">
+        <div th:each="user : ${users}" >
+            <option th:value="${user.id}" th:text="${user.name}" ></option>
+        </div>
+    </select>
+    <label for="cat">Имя кота:</label>
+    <input name="cat" id="cat" class="form-control">
+    <br>
+    <button type="submit" class="btn btn-secondary">Добавить кота</button>
+</form>
+</body>
+</html>
